@@ -7,6 +7,7 @@ import com.paterson.productservice.exceptions.NotFoundException;
 import com.paterson.productservice.services.ProductService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service("fakeProductNameService")
@@ -37,21 +38,27 @@ public class FakeStoreProductService implements ProductService {
 
     @Override
     public GenericProductDto createProduct(GenericProductDto genericProductDto) {
-        return null;
+        return convertFakeStoreDtoToGenericProductDto(fakeStoreProductClient.createProduct(genericProductDto));
     }
 
     @Override
     public List<GenericProductDto> getAllProducts() {
-        return List.of();
+        List<FakeStoreProductDto> fakeStoreProductDtos = fakeStoreProductClient.getAllProducts();
+        List<GenericProductDto> genericProductDtos = new ArrayList<>();
+        for (FakeStoreProductDto fakeStoreProductDto : fakeStoreProductDtos){
+            GenericProductDto genericProductDto = convertFakeStoreDtoToGenericProductDto(fakeStoreProductDto);
+            genericProductDtos.add(genericProductDto);
+        }
+        return genericProductDtos;
     }
 
     @Override
     public GenericProductDto deleteProductById(Long id) {
-        return null;
+        return convertFakeStoreDtoToGenericProductDto(fakeStoreProductClient.deleteProductById(id));
     }
 
     @Override
     public GenericProductDto updateProductById(Long id, GenericProductDto genericProductDto) {
-        return null;
+        return convertFakeStoreDtoToGenericProductDto(fakeStoreProductClient.updateProductById(id, genericProductDto));
     }
 }

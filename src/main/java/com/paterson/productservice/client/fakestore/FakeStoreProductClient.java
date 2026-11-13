@@ -1,6 +1,7 @@
 package com.paterson.productservice.client.fakestore;
 
 import com.paterson.productservice.client.fakestore.dtos.FakeStoreProductDto;
+import com.paterson.productservice.dtos.GenericProductDto;
 import com.paterson.productservice.exceptions.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.restclient.RestTemplateBuilder;
@@ -41,9 +42,10 @@ public class FakeStoreProductClient {
     }
 
 
-    public FakeStoreProductDto createProduct(FakeStoreProductDto fakeStoreProductDto) {
+    public FakeStoreProductDto createProduct(GenericProductDto genericProductDto) {
         RestTemplate restTemplate = restTemplateBuilder.build();
-        ResponseEntity<FakeStoreProductDto> response = restTemplate.postForEntity(createProductUrl, fakeStoreProductDto, FakeStoreProductDto.class);
+        ResponseEntity<FakeStoreProductDto> response =
+                restTemplate.postForEntity(createProductUrl, genericProductDto, FakeStoreProductDto.class);
         FakeStoreProductDto createdProduct = response.getBody();
         return createdProduct;
     }
@@ -71,12 +73,12 @@ public class FakeStoreProductClient {
     }
 
 
-    public FakeStoreProductDto updateProductById(Long id, FakeStoreProductDto fakeStoreProductDto) {
+    public FakeStoreProductDto updateProductById(Long id, GenericProductDto genericProductDto) {
         RestTemplate restTemplate = restTemplateBuilder.build();
         ResponseEntity<FakeStoreProductDto> response = restTemplate.exchange(
                 productUrl,
                 HttpMethod.PUT,
-                new HttpEntity<>(fakeStoreProductDto),
+                new HttpEntity<>(genericProductDto),
                 FakeStoreProductDto.class,
                 id
         );
