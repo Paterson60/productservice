@@ -5,11 +5,13 @@ import com.paterson.productservice.client.fakestore.dtos.FakeStoreProductDto;
 import com.paterson.productservice.dtos.GenericProductDto;
 import com.paterson.productservice.exceptions.NotFoundException;
 import com.paterson.productservice.services.ProductService;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Primary
 @Service("fakeProductNameService")
 public class FakeStoreProductService implements ProductService {
 
