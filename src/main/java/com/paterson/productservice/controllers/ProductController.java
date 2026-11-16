@@ -1,11 +1,9 @@
 package com.paterson.productservice.controllers;
 
-import com.paterson.productservice.dtos.ExceptionDto;
 import com.paterson.productservice.dtos.GenericProductDto;
 import com.paterson.productservice.exceptions.NotFoundException;
 import com.paterson.productservice.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,6 +1,5 @@
 package com.paterson.productservice.dtos;
 
-import com.paterson.productservice.models.Category;
 import lombok.Getter;
 import lombok.Setter;
 
