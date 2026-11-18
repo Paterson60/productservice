@@ -11,7 +11,7 @@ import lombok.Setter;
 public class Product extends BaseModel {
     private String title;
     private String description;
-    private Double image;
+    private String image;
     @ManyToOne
     private Category category;
     private double price;
