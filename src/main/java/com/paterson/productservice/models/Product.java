@@ -1,7 +1,9 @@
 package com.paterson.productservice.models;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,5 +16,8 @@ public class Product extends BaseModel {
     private String image;
     @ManyToOne
     private Category category;
-    private double price;
+    //private double price;
+
+    @OneToOne(cascade = {CascadeType.REMOVE, CascadeType.PERSIST})
+    private Price price;
 }
