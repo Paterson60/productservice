@@ -12,9 +12,9 @@ public interface ProductRepository extends JpaRepository<Product, UUID> {
 
     Product findByTitleAndPrice_Currency(String title, String currency);
 
-    @Query(value = SqlQueries.GET_ALL_PRODUCTS_BY_TITLE, nativeQuery = true)
-    Product findByTitle(String title);
-
-    @Query(value = "select Product from Product where Product.title= :title")
-    Product findByTitle2(String title);
+//    @Query(value = SqlQueries.GET_ALL_PRODUCTS_BY_TITLE, nativeQuery = true)
+//    Product findByTitle(String title);
+//
+//    @Query(value = "select Product from Product where Product.title= :title")
+//    Product findByTitle2(String title);
 }

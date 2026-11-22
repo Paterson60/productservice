@@ -10,6 +10,7 @@ import com.paterson.productservice.models.Product;
 import com.paterson.productservice.repositories.CategoryRepository;
 import com.paterson.productservice.repositories.PriceRepository;
 import com.paterson.productservice.repositories.ProductRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -45,6 +46,7 @@ public class ProductserviceApplication implements CommandLineRunner {
 	}
 
 	@Override
+	@Transactional
 	public void run(String... args) throws Exception {
 //		Mentor mentor = new Mentor();
 //		mentor.setName("John Doe");
@@ -78,20 +80,20 @@ public class ProductserviceApplication implements CommandLineRunner {
 //		studentRepository.save(student);
 
 
-		Category category = new Category();
-		category.setName("Electronics");
-		Category savedCategory = categoryRepository.save(category);
-
-		Price price = new Price("USD", 1000.0);
-		//Price saved price = priceRepository.save(price);
-
-		Product product = new Product();
-		product.setTitle("Iphone4");
-		product.setDescription("smartphone");
-		product.setImage("iphone.jpg");
-		product.setCategory(savedCategory);
-		product.setPrice(price);
-		productRepository.save(product);
+//		Category category = new Category();
+//		category.setName("Electronics");
+//		Category savedCategory = categoryRepository.save(category);
+//
+//		Price price = new Price("USD", 1000.0);
+//		//Price saved price = priceRepository.save(price);
+//
+//		Product product = new Product();
+//		product.setTitle("Iphone4");
+//		product.setDescription("smartphone");
+//		product.setImage("iphone.jpg");
+//		product.setCategory(savedCategory);
+//		product.setPrice(price);
+//		productRepository.save(product);
 
 //		Optional<Category> categoryOptional = categoryRepository.findById(
 //				UUID.fromString("62ee7b57-217f-4f45-9ec5-c36928c7290a"));
@@ -107,9 +109,13 @@ public class ProductserviceApplication implements CommandLineRunner {
 //		if (product1 != null) {
 //			System.out.println("Product found: " + product1.getTitle() + ", Price: " + product1.getPrice().getCurrency() + ", Amount: " + product1.getPrice().getPrice());
 //		}
-		Product product2 = productRepository.abc("Iphone4");
-		if (product2 != null) {
-			System.out.println("Product found: " + product2.getTitle() + ", Price: " + product2.getPrice().getCurrency() + ", Amount: " + product2.getPrice().getPrice());
-		}
+//
+
+//		Optional<Category> categoryOptional = categoryRepository.findById(UUID.fromString("0d61e8ad-a17a-4dd0-9557-4ebe7b2c27ed"));
+//		Category category = categoryOptional.get();
+//		System.out.println(category);
+//
+//		List<Product> products = category.getProducts();
+//		System.out.println("Products in category: " + products);
 	}
 }
